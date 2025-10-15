@@ -29,6 +29,6 @@ http.DefaultRequestHeaders.Add("CS-ApiKey", apiKey);
 http.DefaultRequestHeaders.Add("CS-Password", csPassword);
 
 var api = new CompuSoft.ApiClient.CompuSoftApiClient("https://api.compusoft.com/", http);
-var c = await api.CustomersGETAsync(113, null, null, null, null, csPassword);
-Console.WriteLine(c.Email);
+var c = await api.CustomersAllAsync(0, 10, null, null, null, null, null, null, null, null, csPassword);
+c.ToList().ForEach(x => Console.WriteLine($"{x.Id} {x.Name}"));
 ```
