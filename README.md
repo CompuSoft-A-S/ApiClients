@@ -11,7 +11,7 @@ dotnet tool install --global Nswag.ConsoleCore
 Then generate the client like this:
 
 ```bash
-nswag openapi2csclient /input:https://api.compusoft.dk/swagger/v1/swagger.json?apikey=ey... /output:CompuSoftApiClient.cs /namespace:CompuSoft.ApiClient /ClassName:CompuSoftApiClient /GenerateClientInterfaces:true /GenerateNullableReferenceTypes:true /InjectHttpClient:true /UseBaseUrl:true /jsonLibrary:SystemTextJson /DateTimeType:DateTimeOffset
+nswag openapi2csclient /input:https://api.compusoft.com/swagger/v1/swagger.json?apikey=ey... /output:CompuSoftApiClient.cs /namespace:CompuSoft.ApiClient /ClassName:CompuSoftApiClient /GenerateClientInterfaces:true /GenerateNullableReferenceTypes:true /InjectHttpClient:true /UseBaseUrl:true /jsonLibrary:SystemTextJson /DateTimeType:DateTimeOffset
 ```
 
 Replace `ey...` with the correct apikey.
