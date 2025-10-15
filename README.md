@@ -22,9 +22,10 @@ Replace `ey...` with the correct apikey.
 using System.Net.Http.Headers;
 
 var http = new HttpClient();
-var csPassword = "7928005321";
+var csPassword = "...";
+var apiKey = "...";
 
-http.DefaultRequestHeaders.Add("CS-ApiKey", "...");
+http.DefaultRequestHeaders.Add("CS-ApiKey", apiKey);
 http.DefaultRequestHeaders.Add("CS-Password", csPassword);
 
 var api = new CompuSoft.ApiClient.CompuSoftApiClient("https://api.compusoft.com/", http);
