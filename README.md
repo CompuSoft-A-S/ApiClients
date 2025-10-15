@@ -8,21 +8,13 @@ First, install NSwag:
 dotnet tool install --global Nswag.ConsoleCore
 ```
 
-Then get the Swagger file from:
-
-```
-https://api.compusoft.no/swagger/v1/swagger.json?apikey=...
-```
-
-and save it as `swagger.json`.
-
 Then generate the client like this:
 
 ```bash
-nswag openapi2csclient /input:swagger.json /output:CompuSoftApiClient.cs /namespace:CompuSoft.ApiClient /ClassName:CompuSoftApiClient /GenerateClientInterfaces:true /GenerateNullableReferenceTypes:true /InjectHttpClient:true /UseBaseUrl:true /jsonLibrary:SystemTextJson /DateTimeType:DateTimeOffset
+nswag openapi2csclient /input:[swagger.json](https://api.compusoft.no/swagger/v1/swagger.json?apikey=ey... /output:CompuSoftApiClient.cs /namespace:CompuSoft.ApiClient /ClassName:CompuSoftApiClient /GenerateClientInterfaces:true /GenerateNullableReferenceTypes:true /InjectHttpClient:true /UseBaseUrl:true /jsonLibrary:SystemTextJson /DateTimeType:DateTimeOffset
 ```
 
-You can replace the local reference to `swagger.json` with the direct URL.
+Replace `ey...` with the correct apikey.
 
 ## Example code
 
