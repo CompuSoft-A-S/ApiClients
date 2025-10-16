@@ -1,4 +1,4 @@
-# Compusoft API client
+# CompuSoft API client
 
 ## How to generate an C# API client
 
@@ -16,7 +16,7 @@ nswag openapi2csclient /input:https://api.compusoft.com/swagger/v1/swagger.json?
 
 Replace `ey...` with the correct apikey.
 
-### Example code
+Example code:
 
 ```csharp
 using System.Net.Http.Headers;
@@ -35,7 +35,7 @@ c.ToList().ForEach(x => Console.WriteLine($"{x.Id} {x.Name}"));
 
 ## How to generate a TS API client
 
-- Create a new project
+Create a new project
 
 ```powershell
 mkdir compusoft-ts-min
@@ -45,7 +45,7 @@ npm i -D typescript
 npx tsc --init
 ```
 
-- Edit **tsconfig.json** to contain only this:
+Edit **tsconfig.json** to contain only this:
 
 ```json
 {
@@ -64,7 +64,7 @@ npx tsc --init
 }
 ```
 
-- Update **package.json** scripts:
+Update **package.json** scripts:
 
 ```json
 {
@@ -74,27 +74,21 @@ npx tsc --init
 }
 ```
 
-
-- Generate the NSwag client
-
-Run this in PowerShell (single line):
+Generate the NSwag client (se above for NSwag install) - run this in PowerShell (single line):
 
 ```powershell
-nswag openapi2tsclient /input:https://api.compusoft.com/swagger/v1/swagger.json?apikey=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaXRlaWQiOiJNQ1JESVYiLCJ1c2VyaWQiOiI5OSIsImRhdGUiOiI0NTg3Niw1NjgyMDQ5MzA1NTQifQ.q5xm_D0PuogQDil9capzBcJEI1BVoHdpxGkJzoBEDe4 /output:src/compusoft-api-client.ts /Template:Fetch /ClassName:CompuSoftApiClient /GenerateClientInterfaces:true
+nswag openapi2tsclient /input:https://api.compusoft.com/swagger/v1/swagger.json?apikey=... /output:src/compusoft-api-client.ts /Template:Fetch /ClassName:CompuSoftApiClient /GenerateClientInterfaces:true
 ```
 
 This creates the file **src/compusoft-api-client.ts**.
-
-
-- Minimal demo (single file)
 
 Create **src/demo.ts**:
 
 ```ts
 import { CompuSoftApiClient } from "./compusoft-api-client";
 
-const API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaXRlaWQiOiJNQ1JESVYiLCJ1c2VyaWQiOiI5OSIsImRhdGUiOiI0NTg3Niw1NjgyMDQ5MzA1NTQifQ.q5xm_D0PuogQDil9capzBcJEI1BVoHdpxGkJzoBEDe4";
-const CS_PASSWORD = "0497987770";
+const API_KEY = "...";
+const CS_PASSWORD = "...";
 const baseUrl = "https://api.compusoft.com";
 
 async function fetchWithHeaders(input: RequestInfo, init?: RequestInit): Promise<Response> {
@@ -122,7 +116,8 @@ main().catch(err => {
   console.error("Error:", err);
 });
 ```
-- Build and run
+
+Build and run
 
 ```powershell
 npm start
