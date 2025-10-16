@@ -1,4 +1,4 @@
-# CompuSoft API client
+# CompuSoft API clients
 
 ## How to generate an C# API client
 
