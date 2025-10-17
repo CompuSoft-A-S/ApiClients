@@ -123,3 +123,68 @@ Build and run
 npm start
 ```
 
+## How to generate a Python client
+
+There are several client libraries avalible - here `openapi-python-client`.
+
+First
+
+```
+pip install openapi-python-client
+```
+
+Then download swagger.json
+
+```
+curl -o swagger.json "https://api.compusoft.com/swagger/v1/swagger.json?apikey=..."
+```
+
+and generate client
+
+```
+openapi-python-client generate --path swagger.json
+```
+
+In `.\compu-soft-api-client\` install the client
+
+```
+pip install .
+```
+
+The create `test.py`:
+
+```python
+from compu_soft_api_client import Client
+from compu_soft_api_client.api.customers import get_customers
+
+API_KEY = "..."
+CS_PASSWORD = "..."
+
+
+client = Client(
+    base_url="https://api.compusoft.com",
+    headers={                 
+        "CS-ApiKey": API_KEY,
+        "CS-Password": CS_PASSWORD,
+    },
+)
+
+resp = get_customers.sync_detailed(
+    client=client,
+    skip=0,
+    take=10,
+    cs_password=CS_PASSWORD,
+)
+
+for c in resp.parsed or []:
+    print(c.id, c.name)
+```
+
+Run with
+
+```
+py test.py
+```
+
+
+
