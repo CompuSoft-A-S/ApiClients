@@ -156,19 +156,23 @@ Then in `.\` create `test.py`:
 ```python
 from compu_soft_api_client import Client
 from compu_soft_api_client.api.customers import get_customers
+import asyncio
 
-API_KEY = "..."
-CS_PASSWORD = "..."
+
+API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaXRlaWQiOiJNQ1JESVYiLCJ1c2VyaWQiOiI5OSIsImRhdGUiOiI0NTg3Niw1NjgyMDQ5MzA1NTQifQ.q5xm_D0PuogQDil9capzBcJEI1BVoHdpxGkJzoBEDe4"
+CS_PASSWORD = "2718163823"
 
 
 client = Client(
     base_url="https://api.compusoft.com",
-    headers={                 
+    headers={                 # <-- set default headers here
         "CS-ApiKey": API_KEY,
         "CS-Password": CS_PASSWORD,
     },
 )
 
+# Synchronous call
+print("=== Synchronous call ===")
 resp = get_customers.sync_detailed(
     client=client,
     skip=0,
@@ -178,6 +182,25 @@ resp = get_customers.sync_detailed(
 
 for c in resp.parsed or []:
     print(c.id, c.name)
+
+
+# Asynchronous call
+async def fetch_customers_async():
+    print("\n=== Asynchronous call ===")
+    resp = await get_customers.asyncio_detailed(
+        client=client,
+        skip=0,
+        take=10,
+        cs_password=CS_PASSWORD,
+    )
+    
+    for c in resp.parsed or []:
+        print(c.id, c.name)
+
+
+# Run the async function
+asyncio.run(fetch_customers_async())
+
 ```
 
 Run with
