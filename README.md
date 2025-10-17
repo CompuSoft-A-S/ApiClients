@@ -151,7 +151,7 @@ In `.\compu-soft-api-client\` install the client
 pip install .
 ```
 
-The create `test.py`:
+Then in `.\` create `test.py`:
 
 ```python
 from compu_soft_api_client import Client
