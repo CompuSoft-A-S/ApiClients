@@ -159,8 +159,8 @@ from compu_soft_api_client.api.customers import get_customers
 import asyncio
 
 
-API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaXRlaWQiOiJNQ1JESVYiLCJ1c2VyaWQiOiI5OSIsImRhdGUiOiI0NTg3Niw1NjgyMDQ5MzA1NTQifQ.q5xm_D0PuogQDil9capzBcJEI1BVoHdpxGkJzoBEDe4"
-CS_PASSWORD = "2718163823"
+API_KEY = "..."
+CS_PASSWORD = "..."
 
 
 client = Client(
